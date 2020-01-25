@@ -1,3 +1,7 @@
+####################################
+### NZBGET POST-PROCESSING SCRIPT
+
+
 # this is my first script
 # ensure that only the temporary folders in the copy directory are deleted: meaning that only delete the
 #  folders that start with the day, and not the folders that are the names of TV shows
