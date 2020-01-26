@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 ####################################
 ### NZBGET POST-PROCESSING SCRIPT
 
@@ -22,7 +24,7 @@ MainVideoCopyFrom ="/disks/USBMedia/shares/SABNzbd/completed"
 video1 = ".mkv" #video file extensions
 video2 = ".avi" #video files extensions
 video3 = ".mp4" #video files extensions
-rar1 = ".rar"# zip file extensions
+rar1 = ".rar" #zip file extensions
 rar2 = ".z01" # zip file extensions
 rar3 = ".x01" #zip file extensions
 rar4 = ".rar" #zip file extension
@@ -34,6 +36,9 @@ DelSt1 = "0"
 DelSt2 = "1"
 DelSt3 = "3"
 # ----- END Declare Variables -------------------------------------------
+### NZBGET POST-PROCESSING SCRIPT ###
+
+
 # create a folder with todays date on the external USB if it does not already exist
 today = time.strftime("%d_%m_%Y")# formating for new folder
 NewFolderToday = MainVideoCopyTo+"/"+today # new folder location
@@ -145,7 +150,7 @@ for a in range(0,len(MVC)):
     if mtime < DelSource:
         print('remove %s' % MVC[a])
         shutil.rmtree(path)
-        
+ 
 # Delete any folders that are older than X-days defined in the variables section
 DeleteDestSeconds = 60*60*24*DeleteAfterDays
 DelDestination = time.time() - DeleteDestSeconds #time in seconds
@@ -159,5 +164,4 @@ for a in range(0,len(MVCT)):
         shutil.rmtree(path)
 # ----- END Main Program ------------------------------------------------
 
-### NZBGET POST-PROCESSING SCRIPT ###
 ##########################################################################
