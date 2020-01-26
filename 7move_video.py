@@ -158,3 +158,6 @@ for a in range(0,len(MVCT)):
         print('remove destination dir %s' % MVCT[a])
         shutil.rmtree(path)
 # ----- END Main Program ------------------------------------------------
+
+### NZBGET POST-PROCESSING SCRIPT ###
+##########################################################################
