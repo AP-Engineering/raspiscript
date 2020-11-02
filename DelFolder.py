@@ -27,6 +27,7 @@ if os.listdir() != []: # checks if DelFolder is empty
     os.chdir(ParentDir) # change to the parent directory
     shutil.rmtree(DelFolder) #Delete the contents of the DelFolder
     os.mkdir(DelFolder) #recreate the folder
+    os._exit(93) #nzbget exit code - all is good
 
 ##########################################################################
 # nzbget exit code
