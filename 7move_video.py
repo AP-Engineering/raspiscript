@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 
 ####################################
 ### NZBGET POST-PROCESSING SCRIPT
@@ -15,12 +15,14 @@
 
 # ----- Declare Variables -----------------------------------------------
 # Adjust the variables in this section only
-import time, os, shutil, fnmatch, subprocess
+import sys, time, os, shutil, fnmatch, subprocess
 from subprocess import Popen, PIPE
 
 DeleteAfterDays = 30 # after this many days the old files will be deleted on the external USB drive
 MainVideoCopyTo = "/disks/USBMedia/shares/TV"
 MainVideoCopyFrom ="/disks/USBMedia/shares/SABNzbd/completed"
+
+### NZBGET POST-PROCESSING SCRIPT ###
 video1 = ".mkv" #video file extensions
 video2 = ".avi" #video files extensions
 video3 = ".mp4" #video files extensions
@@ -36,7 +38,7 @@ DelSt1 = "0"
 DelSt2 = "1"
 DelSt3 = "3"
 # ----- END Declare Variables -------------------------------------------
-### NZBGET POST-PROCESSING SCRIPT ###
+
 
 
 # create a folder with todays date on the external USB if it does not already exist
@@ -166,4 +168,4 @@ for a in range(0,len(MVCT)):
 
 ##########################################################################
 # nzbget exit code
-exit /b 93
+sys.exit(93) # all is good for nzbget

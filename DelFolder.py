@@ -10,6 +10,7 @@
 # Import library's for cmds
 import os
 import shutil
+import sys
  
 
 #Variables for program
@@ -30,6 +31,6 @@ if os.listdir() != []: # checks if DelFolder is empty
 
 ##########################################################################
 # nzbget exit code
-exit /b 93    
-#EOF
+sys.exit(93)    
+
     

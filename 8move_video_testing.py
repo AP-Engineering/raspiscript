@@ -15,7 +15,7 @@
 
 # ----- Declare Variables -----------------------------------------------
 # Adjust the variables in this section only
-import time, os, shutil, fnmatch, subprocess
+import sys,time, os, shutil, fnmatch, subprocess
 from subprocess import Popen, PIPE
 
 DeleteAfterDays = 30 # after this many days the old files will be deleted on the external USB drive
@@ -172,4 +172,5 @@ for a in range(0,len(MVCT)):
 
 ##########################################################################
 # nzbget exit code
-exit /b 93
+sys.exit(93) # all is good for nzbget
+
