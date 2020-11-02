@@ -10,7 +10,7 @@
 # Import library's for cmds
 import os
 import shutil
-#import sys
+import sys
 
 #Variables for program
 DelFolderP = "/disks/USBMedia/shares/SABNzbd/completed" #delete folder path
@@ -27,9 +27,9 @@ if os.listdir() != []: # checks if DelFolder is empty
     os.chdir(ParentDir) # change to the parent directory
     shutil.rmtree(DelFolder) #Delete the contents of the DelFolder
     os.mkdir(DelFolder) #recreate the folder
-    os._exit(93) #nzbget exit code - all is good
+    sys.exit(93) #nzbget exit code - all is good
 
 ##########################################################################
 # nzbget exit code
-#sys.exit(93) # all is good for nzbget
-os._exit(93)
+sys.exit(93) # all is good for nzbget
+#os._exit(93)
