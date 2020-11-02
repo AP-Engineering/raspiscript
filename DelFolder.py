@@ -4,6 +4,9 @@
 #      8Move_video script (original issue in '8' script needs to be addressed
 # written by Cliff Laver, P.Eng on Nov 1, 2020
 
+####################################
+### NZBGET POST-PROCESSING SCRIPT
+
 # Import library's for cmds
 import os
 import shutil
