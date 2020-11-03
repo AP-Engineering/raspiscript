@@ -13,17 +13,17 @@ import shutil
 import sys
 
 #Variables for program
-DelFolderP = "/disks/USBMedia/shares/SABNzbd/completed" #delete folder path
-ParentDir = "/disks/USBMedia/shares/SABNzbd" #parent directory of one to be deleted
+DelFolderP = "/disks/USBMedia/shares/SABNzbd/completed" #directory of delfolder
+ParentDir = "/disks/USBMedia/shares/SABNzbd" #parent directory of DelFolderP to be deleted
 DelFolder = "completed" #folder to be deleted and recreated
 
 #change current working folder to the one to check
-os.chdir(DelFolderP)
+#os.chdir(DelFolderP)
 
 #if DelFolder is not empty, change to parent dir
 # then delete the DelFolder; after deletion recreate it
 
-if os.listdir() != []: # checks if DelFolder is empty
+if os.listdir(DelFolderP) != []: # checks if DelFolder directory is empty
     os.chdir(ParentDir) # change to the parent directory
     shutil.rmtree(DelFolder) #Delete the contents of the DelFolder
     os.mkdir(DelFolder) #recreate the folder
