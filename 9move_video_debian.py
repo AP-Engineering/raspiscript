@@ -9,7 +9,11 @@
 #  folders that start with the day, and not the folders that are the names of TV shows
 
 # Written to move newly downloaded video files to a folder of todays date
-
+#
+# --------------------Modifications
+# date: Jan 6, 2021
+# issue: shutil.move does not work with a local network share
+# correction: replaced with copyfile, issue resolved
 # -----------------------------------------------------------------------
 # ------- Main Program --------------------------------------------------
 
@@ -17,6 +21,7 @@
 # Adjust the variables in this section only
 import sys,time, os, shutil, fnmatch, subprocess
 from subprocess import Popen, PIPE
+from shutil import copyfile
 
 DeleteAfterDays = 30 # after this many days the old files will be deleted on the external USB drive
 MainVideoCopyTo = "/media/TV"
@@ -70,11 +75,11 @@ for a in range(0,len(MVC)): #cycle through all directories
                 print("B: %s " %b)
                 print("mvc[b]: %s " %MVC[b]) # BUG: changes to display correct directory 013120 NZBGET
                 #delete sample files that are smaller than 100MB
-                if b == 0:
-                    if os.path.getsize(root+"/"+file) < 100000000:
-                        print("too small delete")
-                        os.remove(root+"/"+file)
-                        b = -1
+                #if b == 0:
+                 #   if os.path.getsize(root+"/"+file) < 100000000:
+                  #      print("too small delete")
+                   #     os.remove(root+"/"+file)
+                    #    b = -1
                 if b >= 1:
                     if os.path.getsize(newpath+"/"+file) < 100000000:
                         print("too small inside loop, delete sample file")
@@ -88,9 +93,9 @@ for a in range(0,len(MVC)): #cycle through all directories
                 if b >= 1:
                     if c == 1:
                         #the integer
-                        shutil.move(root+"/"+file,NewFolderToday+"/"+newpath+str(b)+".mkv")
+                        copyfile(root+"/"+file,NewFolderToday+"/"+newpath+str(b)+".mkv")
                     else:
-                        shutil.move(root+"/"+file,NewFolderToday+"/"+MVC[a]+str(b)+".mkv")
+                        copyfile(root+"/"+file,NewFolderToday+"/"+MVC[a]+str(b)+".mkv")
                         shutil.rmtree(path)
 
             else:
@@ -127,7 +132,7 @@ for a in range(0,len(unrarDir)):#join the path and filename to be extracted toge
                 for file in files:
                     if file.endswith(video1) or file.endswith(video2) or file.endswith(video3):
                         #if os.path.getsize(file) >
-                        shutil.move(root+"/"+file,NewFolderToday+"/"+str(MVC)+".mkv")
+                        copyfile(root+"/"+file,NewFolderToday+"/"+str(MVC)+".mkv")
                         break
             print("del after break and file move")
             os.chdir(MainVideoCopyFrom) #change to the main folder
