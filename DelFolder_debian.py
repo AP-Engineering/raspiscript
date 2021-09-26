@@ -13,8 +13,8 @@ import shutil
 import sys
 
 #Variables for program
-DelFolderP = "/nzbTMP/completed" #directory of delfolder
-ParentDir = "/nzbTMP" #parent directory of DelFolderP to be deleted
+DelFolderP = "/media/lavermedia/nzbget/completed" #directory of delfolder
+ParentDir = "/media/lavermedia/nzbget" #parent directory of DelFolderP to be deleted
 DelFolder = "completed" #folder to be deleted and recreated
 
 #change current working folder to the one to check

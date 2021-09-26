@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env /usr/bin/python3
 
 ####################################
 ### NZBGET POST-PROCESSING SCRIPT
@@ -14,6 +14,14 @@
 # date: Jan 6, 2021
 # issue: shutil.move does not work with a local network share
 # correction: replaced with copyfile, issue resolved
+#
+# date: Jan 8, 2021
+# issue: using only external network harddrive for storage, small movie files not being deleted
+# correction: uncomented some code and changed the variables
+#
+# date: sept 26, 2021
+# issue: after udating to bullseye the script will not run
+# correction: could not locate 'python' have to update first line with full path to python3
 # -----------------------------------------------------------------------
 # ------- Main Program --------------------------------------------------
 
@@ -24,8 +32,8 @@ from subprocess import Popen, PIPE
 from shutil import copyfile
 
 DeleteAfterDays = 30 # after this many days the old files will be deleted on the external USB drive
-MainVideoCopyTo = "/media/TV"
-MainVideoCopyFrom ="/nzbTMP/completed"
+MainVideoCopyTo = "/media/lavermedia/shares/TV"
+MainVideoCopyFrom ="/media/lavermedia/nzbget/completed"
 video1 = ".mkv" #video file extensions
 video2 = ".avi" #video files extensions
 video3 = ".mp4" #video files extensions
@@ -75,11 +83,11 @@ for a in range(0,len(MVC)): #cycle through all directories
                 print("B: %s " %b)
                 print("mvc[b]: %s " %MVC[b]) # BUG: changes to display correct directory 013120 NZBGET
                 #delete sample files that are smaller than 100MB
-                #if b == 0:
-                 #   if os.path.getsize(root+"/"+file) < 100000000:
-                  #      print("too small delete")
-                   #     os.remove(root+"/"+file)
-                    #    b = -1
+                if b == 0:
+                    if os.path.getsize(root+"/"+file) < 100000000:
+                        print("too small delete")
+                        os.remove(root+"/"+file)
+                        b = -1
                 if b >= 1:
                     if os.path.getsize(newpath+"/"+file) < 100000000:
                         print("too small inside loop, delete sample file")
