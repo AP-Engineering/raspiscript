@@ -1,8 +1,12 @@
-#!/usr/bin/env python3
+#!/usr/bin/env /usr/bin/python3
 
 # Written to delete the contents of a specific directory; addressing an issue with
 #      8Move_video script (original issue in '8' script needs to be addressed
 # written by Cliff Laver, P.Eng on Nov 1, 2020
+#
+# date sept 26, 2021
+# issue: script will no longer run in NZBGet on bullseye
+# correction: had to update the full path of python3 in the shebang line as a link to python is remove in OS
 
 ####################################
 ### NZBGET POST-PROCESSING SCRIPT
