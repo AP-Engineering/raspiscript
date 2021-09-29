@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env /usr/bin/python3
 
 ####################################
 ### NZBGET POST-PROCESSING SCRIPT
@@ -19,12 +19,7 @@
 # issue: using only external network harddrive for storage, small movie files not being deleted
 # correction: uncomented some code and changed the variables
 #
-# date: sept 26, 2021
-# issue: after udating to bullseye the script will not run
-# correction: could not locate 'python' have to update first line with full path to python3
-# Correction: Nzbget.conf file changed to call python3 on .py scripts, alternatively one
-#             could change the extension of these python3 files to .py3
-# -----------------------------------------------------------------------
+## -----------------------------------------------------------------------
 # ------- Main Program --------------------------------------------------
 
 # ----- Declare Variables -----------------------------------------------
