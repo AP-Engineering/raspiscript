@@ -34,8 +34,8 @@ from subprocess import Popen, PIPE
 from shutil import copyfile
 
 DeleteAfterDays = 30 # after this many days the old files will be deleted on the external USB drive
-MainVideoCopyTo = "/media/lavermedia/shares/TV"
-MainVideoCopyFrom ="/media/lavermedia/nzbget/completed"
+MainVideoCopyTo = "/media/USBdisk/laver/shares/TV"
+MainVideoCopyFrom ="/media/USBdisk/laver/nzbget/completed"
 video1 = ".mkv" #video file extensions
 video2 = ".avi" #video files extensions
 video3 = ".mp4" #video files extensions
